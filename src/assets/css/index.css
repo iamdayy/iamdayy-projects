@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+/* Header */
+.header{
+    background-color: grey;
+    /* opacity: 45%; */
+    box-shadow: 1px 1px 5px 0px gray;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    text-align: start;
+    
+}
+.header a {
+  text-decoration: none;
+}
+.header ul {
+  list-style: none;
+}
+.nav {
+  width: 100%;
+  height: fit-content;
+  position: fixed;
+  background-color: rgba(255, 250, 250, 0.596);
+  overflow: auto;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.menu {
+  margin: 0;
+}
+.menu a {
+  display: block;
+  padding: 30px;
+  color: white;
+}
+
+.menu a:hover {
+  background-color: gray;
+}
+
+.nav {
+  max-height: 0;
+  transition: max-height .5s ease-out;
+}
+
+.hamb {
+  cursor: pointer;
+  float: right;
+  padding: 40px 20px;
+}
+
+.hamb-line {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+}
+
+.hamb-line::before,
+.hamb-line::after {
+  background: white;
+  content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before {
+  top: 5px;
+}
+
+.hamb-line::after {
+  top: -5px;
+}
+
+.side-menu {
+  display: none;
+}
+
+.side-menu:checked ~ nav {
+  max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+  background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+/* Logo */
+.logo{
+    display: inline-block;
+    color: white;
+    font-size: 60px;
+    margin-left: 10px;
+}
+
+@media (min-width: 768px) {
+  .header{
+    background-color: rgba(255, 250, 250, 0.596);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+    .nav{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+        -webkit-backdrop-filter: blur(0px);
+        backdrop-filter: blur(0px);
+    }
+    .menu li{
+        float: left;
+    }
+    .menu a {
+      position: static;
+    }
+    .menu a:hover{
+        background-color: transparent;
+        color: gray;
+
+    }
+
+    .hamb{
+        display: none;
+    }
+}
