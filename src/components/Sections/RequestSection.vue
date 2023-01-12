@@ -143,6 +143,8 @@ export default defineComponent({
     async fetchSkillData() {
       try {
         await apiService.fetchSkillData();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
         this.skills = apiService.skillData;
       } catch (e) {
         console.log(e);

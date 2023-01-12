@@ -128,6 +128,8 @@ export default defineComponent({
   methods: {
     async fetcRequest() {
       await apiService.fetchRequestData();
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       this.requests = apiService.RequestData;
     },
   },
